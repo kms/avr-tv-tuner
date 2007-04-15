@@ -40,6 +40,7 @@ int main(void) {
     uint16_t f;
     for (;;)  {
 	for (f = 2076; f < 2388;) {
+	    // Philips FL1236
 	    f += 1;
 
 	    TWCR = _BV(TWEN) | _BV(TWINT) | _BV(TWSTA);
