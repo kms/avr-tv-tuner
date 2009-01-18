@@ -1,6 +1,8 @@
-/*
- * Karl-Martin Skontorp LA9PMA <kms@skontorp.net>
- * $Id: fRound.h 93 2006-05-22 09:30:07Z kms $
+/* avr-tv-tuner
+ * Controlling a Philips TV tuner over I2C.
+ *
+ * (c) Karl-Martin Skontorp <kms@skontorp.net> ~ http://picofarad.org/
+ * Licensed under the GNU GPL 2.0 or later.
  */
 
 #define F_CPU 8E6
