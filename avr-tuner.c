@@ -21,7 +21,7 @@ void delay_200() {
     uint8_t i;
 
     for (i = 0; i < 200; i++) {
-	_delay_ms(5);
+        _delay_ms(5);
     }
 }
 
@@ -41,44 +41,44 @@ int main(void) {
 
     uint16_t f;
     for (;;)  {
-	for (f = 2076; f < 2388;) {
-	    // UV916E/IEC / Philips FQ916 (MK2)
-	    f += 1;
+        for (f = 2076; f < 2388;) {
+            // UV916E/IEC / Philips FQ916 (MK2)
+            f += 1;
 
-	    TWCR = _BV(TWEN) | _BV(TWINT) | _BV(TWSTA);
-	    while (!(TWCR & _BV(TWINT))) {
-	    }
+            TWCR = _BV(TWEN) | _BV(TWINT) | _BV(TWSTA);
+            while (!(TWCR & _BV(TWINT))) {
+            }
 
-	    TWDR = 0xc6;
-	    TWCR = _BV(TWINT) | _BV(TWEN);
-	    while (!(TWCR & _BV(TWINT))) {
-	    }
+            TWDR = 0xc6;
+            TWCR = _BV(TWINT) | _BV(TWEN);
+            while (!(TWCR & _BV(TWINT))) {
+            }
 
-	    TWDR = (f & 0x7f00) >> 8;
-	    //TWDR = 0x10;
-	    TWCR = _BV(TWINT) | _BV(TWEN);
-	    while (!(TWCR & _BV(TWINT))) {
-	    }
+            TWDR = (f & 0x7f00) >> 8;
+            //TWDR = 0x10;
+            TWCR = _BV(TWINT) | _BV(TWEN);
+            while (!(TWCR & _BV(TWINT))) {
+            }
 
-	    TWDR = f & 0xff;
-	    //TWDR = 0x87;
-	    TWCR = _BV(TWINT) | _BV(TWEN);
-	    while (!(TWCR & _BV(TWINT))) {
-	    }
+            TWDR = f & 0xff;
+            //TWDR = 0x87;
+            TWCR = _BV(TWINT) | _BV(TWEN);
+            while (!(TWCR & _BV(TWINT))) {
+            }
 
-	    TWDR = 0x8e;
-	    TWCR = _BV(TWINT) | _BV(TWEN);
-	    while (!(TWCR & _BV(TWINT))) {
-	    }
+            TWDR = 0x8e;
+            TWCR = _BV(TWINT) | _BV(TWEN);
+            while (!(TWCR & _BV(TWINT))) {
+            }
 
-	    TWDR = 0xa0;
-	    TWCR = _BV(TWINT) | _BV(TWEN);
-	    while (!(TWCR & _BV(TWINT))) {
-	    }
+            TWDR = 0xa0;
+            TWCR = _BV(TWINT) | _BV(TWEN);
+            while (!(TWCR & _BV(TWINT))) {
+            }
 
-	    TWCR = _BV(TWINT) | _BV(TWEN) | _BV(TWSTO);
+            TWCR = _BV(TWINT) | _BV(TWEN) | _BV(TWSTO);
 
-	    delay_200();
-	}
+            delay_200();
+        }
     }
 }
